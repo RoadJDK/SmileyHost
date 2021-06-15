@@ -29,68 +29,120 @@ namespace SmileyHost
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.LogOutput = new System.Windows.Forms.TextBox();
+            this.Screenshot = new System.Windows.Forms.Label();
+            this.Connect = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Close = new System.Windows.Forms.PictureBox();
+            this.Display = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Display)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // LogOutput
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(21, 24);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(251, 411);
-            this.textBox1.TabIndex = 0;
+            this.LogOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.LogOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LogOutput.ForeColor = System.Drawing.Color.White;
+            this.LogOutput.Location = new System.Drawing.Point(21, 43);
+            this.LogOutput.Multiline = true;
+            this.LogOutput.Name = "LogOutput";
+            this.LogOutput.ReadOnly = true;
+            this.LogOutput.Size = new System.Drawing.Size(251, 392);
+            this.LogOutput.TabIndex = 0;
             // 
-            // pictureBox1
+            // Screenshot
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.pictureBox1.Location = new System.Drawing.Point(304, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(630, 411);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.Screenshot.AutoSize = true;
+            this.Screenshot.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Screenshot.ForeColor = System.Drawing.Color.White;
+            this.Screenshot.Location = new System.Drawing.Point(300, 453);
+            this.Screenshot.Name = "Screenshot";
+            this.Screenshot.Size = new System.Drawing.Size(96, 21);
+            this.Screenshot.TabIndex = 8;
+            this.Screenshot.Text = "Screenshot";
+            this.Screenshot.Click += new System.EventHandler(this.START_Click);
             // 
-            // button1
+            // Connect
             // 
-            this.button1.Location = new System.Drawing.Point(399, 453);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Screenshot";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Connect.AutoSize = true;
+            this.Connect.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Connect.ForeColor = System.Drawing.Color.White;
+            this.Connect.Location = new System.Drawing.Point(17, 453);
+            this.Connect.Name = "Connect";
+            this.Connect.Size = new System.Drawing.Size(80, 21);
+            this.Connect.TabIndex = 9;
+            this.Connect.Text = "Connect";
+            this.Connect.Click += new System.EventHandler(this.Connect_Click);
             // 
-            // button2
+            // pictureBox2
             // 
-            this.button2.Location = new System.Drawing.Point(304, 453);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Connect";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.pictureBox2.BackgroundImage = global::SmileyHost.Properties.Resources.whiteminus1;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(903, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(22, 22);
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // Close
+            // 
+            this.Close.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Close.BackgroundImage")));
+            this.Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Close.Location = new System.Drawing.Point(931, 12);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(22, 22);
+            this.Close.TabIndex = 5;
+            this.Close.TabStop = false;
+            this.Close.Click += new System.EventHandler(this.Close_Click);
+            // 
+            // Display
+            // 
+            this.Display.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Display.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.Display.Location = new System.Drawing.Point(304, 43);
+            this.Display.Name = "Display";
+            this.Display.Size = new System.Drawing.Size(649, 392);
+            this.Display.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Display.TabIndex = 2;
+            this.Display.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(17, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(206, 21);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "SmileyHost Dashboard :^)";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 560);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.ClientSize = new System.Drawing.Size(965, 505);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.Connect);
+            this.Controls.Add(this.Screenshot);
+            this.Controls.Add(this.Close);
+            this.Controls.Add(this.Display);
+            this.Controls.Add(this.LogOutput);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SmileyHost";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Display)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,11 +150,13 @@ namespace SmileyHost
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox LogOutput;
+        private System.Windows.Forms.PictureBox Display;
+        private System.Windows.Forms.PictureBox Close;
+        private System.Windows.Forms.Label Screenshot;
+        private System.Windows.Forms.Label Connect;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

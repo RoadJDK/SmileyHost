@@ -24,9 +24,11 @@ namespace SmileyHost
         private void Form1_Load(object sender, EventArgs e)
         {
             DoWorkTimer();
-            _overlay = new PictureBox();
-            _overlay.Location = pictureBox1.Location;
-            _overlay.Size = pictureBox1.Size;
+            _overlay = new PictureBox
+            {
+                Location = Display.Location,
+                Size = Display.Size
+            };
             _overlay.Hide();
             _overlay.SizeMode = PictureBoxSizeMode.StretchImage;
             this.Controls.Add(_overlay);
@@ -35,10 +37,10 @@ namespace SmileyHost
 
         private void Log(string text)
         {
-            if (ControlInvokeRequired(textBox1, () => Log(text))) return;
+            if (ControlInvokeRequired(LogOutput, () => Log(text))) return;
             Console.WriteLine(text);
-            textBox1.AppendText(text);
-            textBox1.AppendText(Environment.NewLine);
+            LogOutput.AppendText(text);
+            LogOutput.AppendText(Environment.NewLine);
         }
 
         public bool ControlInvokeRequired(Control c, Action a)
@@ -47,18 +49,6 @@ namespace SmileyHost
             else return false;
 
             return true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (_running)
-            {
-                pictureBox1.Image.Save(DateTime.Now.Ticks.ToString("D19") + ".png", ImageFormat.Png);
-            }
-            else
-            {
-                _overlay.Image.Save(DateTime.Now.Ticks.ToString("D19") + ".png", ImageFormat.Png);
-            }
         }
 
         void DoWorkTimer()
@@ -70,25 +60,14 @@ namespace SmileyHost
 
         void _timer_Tick(object sender, EventArgs e)
         {
-            var worker = new BackgroundWorker();
-            worker.WorkerSupportsCancellation = true;
+            var worker = new BackgroundWorker
+            {
+                WorkerSupportsCancellation = true
+            };
             worker.DoWork += worker_DoWork;
             worker.RunWorkerAsync();
             worker.CancelAsync();
             worker.Dispose();
-        }
-
-        public static bool IsValidImage(NetworkStream stream)
-        {
-            try
-            {
-                Image.FromStream(stream);
-            }
-            catch (ArgumentException)
-            {
-                return false;
-            }
-            return true;
         }
 
         private void Recieve(TcpClient client)
@@ -98,31 +77,12 @@ namespace SmileyHost
                 var nNetStream = client.GetStream();
 
                 var returnImage = Image.FromStream(nNetStream);
-                pictureBox1.Image = returnImage;
+                Display.Image = returnImage;
                 nNetStream.Close();
             }
             catch (Exception)
             {
-                Log("Connection lost");
-            }
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (!_running)
-            {
-                Log("Connecting...");
-                _overlay.Hide();
-                _running = true;
-                _timer.IsEnabled = true;
-            }
-            else
-            {
-                Log("Stopping all threads...");
-                _overlay.Image = pictureBox1.Image;
-                _overlay.Show();
-                _running = false;
-                _timer.IsEnabled = false;
             }
         }
 
@@ -130,8 +90,7 @@ namespace SmileyHost
         {
             try
             {
-                //84.226.205.126
-                var ipAddress = IPAddress.Parse("192.168.0.10");
+                var ipAddress = IPAddress.Parse("192.168.0.0"); //ip
                 using (var client = new TcpClient())
                 {
                     client.Connect(ipAddress, 65535);
@@ -141,8 +100,61 @@ namespace SmileyHost
             }
             catch (Exception)
             {
-                Log("Server not operating");
+
             }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+            }
+
+            base.WndProc(ref m);
+        }
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Connect_Click(object sender, EventArgs e)
+        {
+            if (!_running)
+            {
+                _overlay.Hide();
+                _running = true;
+                _timer.IsEnabled = true;
+            }
+            else
+            {
+                _overlay.Image = Display.Image;
+                _overlay.Show();
+                _running = false;
+                _timer.IsEnabled = false;
+            }
+        }
+
+        private void START_Click(object sender, EventArgs e)
+        {
+            if (_running)
+            {
+                Display.Image.Save(DateTime.Now.Ticks.ToString("D19") + ".png", ImageFormat.Png);
+            }
+            else
+            {
+                _overlay.Image.Save(DateTime.Now.Ticks.ToString("D19") + ".png", ImageFormat.Png);
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
