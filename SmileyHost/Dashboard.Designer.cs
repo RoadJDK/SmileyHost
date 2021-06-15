@@ -1,7 +1,7 @@
 ﻿
 namespace SmileyHost
 {
-    partial class Form1
+    partial class Dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,16 @@ namespace SmileyHost
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.LogOutput = new System.Windows.Forms.TextBox();
             this.Screenshot = new System.Windows.Forms.Label();
-            this.Connect = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ServerStart = new System.Windows.Forms.Label();
+            this.Minimize = new System.Windows.Forms.PictureBox();
             this.Close = new System.Windows.Forms.PictureBox();
             this.Display = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Display)).BeginInit();
             this.SuspendLayout();
@@ -59,35 +60,35 @@ namespace SmileyHost
             this.Screenshot.AutoSize = true;
             this.Screenshot.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Screenshot.ForeColor = System.Drawing.Color.White;
-            this.Screenshot.Location = new System.Drawing.Point(300, 453);
+            this.Screenshot.Location = new System.Drawing.Point(366, 453);
             this.Screenshot.Name = "Screenshot";
             this.Screenshot.Size = new System.Drawing.Size(96, 21);
             this.Screenshot.TabIndex = 8;
             this.Screenshot.Text = "Screenshot";
-            this.Screenshot.Click += new System.EventHandler(this.START_Click);
+            this.Screenshot.Click += new System.EventHandler(this.Screenshot_Click);
             // 
-            // Connect
+            // ServerStart
             // 
-            this.Connect.AutoSize = true;
-            this.Connect.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Connect.ForeColor = System.Drawing.Color.White;
-            this.Connect.Location = new System.Drawing.Point(17, 453);
-            this.Connect.Name = "Connect";
-            this.Connect.Size = new System.Drawing.Size(80, 21);
-            this.Connect.TabIndex = 9;
-            this.Connect.Text = "Connect";
-            this.Connect.Click += new System.EventHandler(this.Connect_Click);
+            this.ServerStart.AutoSize = true;
+            this.ServerStart.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServerStart.ForeColor = System.Drawing.Color.White;
+            this.ServerStart.Location = new System.Drawing.Point(17, 453);
+            this.ServerStart.Name = "ServerStart";
+            this.ServerStart.Size = new System.Drawing.Size(100, 21);
+            this.ServerStart.TabIndex = 9;
+            this.ServerStart.Text = "Start Server";
+            this.ServerStart.Click += new System.EventHandler(this.ServerStart_Click);
             // 
-            // pictureBox2
+            // Minimize
             // 
-            this.pictureBox2.BackgroundImage = global::SmileyHost.Properties.Resources.whiteminus1;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(903, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(22, 22);
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.Minimize.BackgroundImage = global::SmileyHost.Properties.Resources.whiteminus1;
+            this.Minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Minimize.Location = new System.Drawing.Point(903, 12);
+            this.Minimize.Name = "Minimize";
+            this.Minimize.Size = new System.Drawing.Size(22, 22);
+            this.Minimize.TabIndex = 10;
+            this.Minimize.TabStop = false;
+            this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
             // 
             // Close
             // 
@@ -122,25 +123,37 @@ namespace SmileyHost
             this.label1.TabIndex = 11;
             this.label1.Text = "SmileyHost Dashboard :^)";
             // 
-            // Form1
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(300, 453);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 21);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Freeze";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(965, 505);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.Connect);
+            this.Controls.Add(this.Minimize);
+            this.Controls.Add(this.ServerStart);
             this.Controls.Add(this.Screenshot);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.Display);
             this.Controls.Add(this.LogOutput);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "Dashboard";
             this.Text = "SmileyHost";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Display)).EndInit();
             this.ResumeLayout(false);
@@ -154,9 +167,10 @@ namespace SmileyHost
         private System.Windows.Forms.PictureBox Display;
         private System.Windows.Forms.PictureBox Close;
         private System.Windows.Forms.Label Screenshot;
-        private System.Windows.Forms.Label Connect;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label ServerStart;
+        private System.Windows.Forms.PictureBox Minimize;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
