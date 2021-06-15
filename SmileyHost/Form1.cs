@@ -78,11 +78,25 @@ namespace SmileyHost
             worker.Dispose();
         }
 
+        public static bool IsValidImage(NetworkStream stream)
+        {
+            try
+            {
+                Image.FromStream(stream);
+            }
+            catch (ArgumentException)
+            {
+                return false;
+            }
+            return true;
+        }
+
         private void Recieve(TcpClient client)
         {
             try
             {
                 var nNetStream = client.GetStream();
+
                 var returnImage = Image.FromStream(nNetStream);
                 pictureBox1.Image = returnImage;
                 nNetStream.Close();
@@ -97,7 +111,7 @@ namespace SmileyHost
         {
             if (!_running)
             {
-                Log("Connected...");
+                Log("Connecting...");
                 _overlay.Hide();
                 _running = true;
                 _timer.IsEnabled = true;
@@ -116,11 +130,12 @@ namespace SmileyHost
         {
             try
             {
-                var ipAddress = IPAddress.Parse("127.0.0.1");
+                //84.226.205.126
+                var ipAddress = IPAddress.Parse("192.168.0.10");
                 using (var client = new TcpClient())
                 {
-                    client.Connect(ipAddress, 25565);
-
+                    client.Connect(ipAddress, 65535);
+                    
                     Recieve(client);
                 }
             }
