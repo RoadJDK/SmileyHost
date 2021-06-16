@@ -32,7 +32,6 @@ namespace SmileyHost
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.LogOutput = new System.Windows.Forms.TextBox();
             this.Screenshot = new System.Windows.Forms.Label();
-            this.ServerStart = new System.Windows.Forms.Label();
             this.Minimize = new System.Windows.Forms.PictureBox();
             this.Close = new System.Windows.Forms.PictureBox();
             this.Display = new System.Windows.Forms.PictureBox();
@@ -42,6 +41,7 @@ namespace SmileyHost
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.IP = new System.Windows.Forms.Label();
+            this.Record = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Display)).BeginInit();
@@ -70,18 +70,6 @@ namespace SmileyHost
             this.Screenshot.TabIndex = 8;
             this.Screenshot.Text = "Screenshot";
             this.Screenshot.Click += new System.EventHandler(this.Screenshot_Click);
-            // 
-            // ServerStart
-            // 
-            this.ServerStart.AutoSize = true;
-            this.ServerStart.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServerStart.ForeColor = System.Drawing.Color.White;
-            this.ServerStart.Location = new System.Drawing.Point(17, 453);
-            this.ServerStart.Name = "ServerStart";
-            this.ServerStart.Size = new System.Drawing.Size(100, 21);
-            this.ServerStart.TabIndex = 9;
-            this.ServerStart.Text = "Start Server";
-            this.ServerStart.Click += new System.EventHandler(this.ServerStart_Click);
             // 
             // Minimize
             // 
@@ -180,12 +168,25 @@ namespace SmileyHost
             this.IP.TabIndex = 16;
             this.IP.Text = "N/A";
             // 
+            // Record
+            // 
+            this.Record.AutoSize = true;
+            this.Record.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Record.ForeColor = System.Drawing.Color.White;
+            this.Record.Location = new System.Drawing.Point(468, 453);
+            this.Record.Name = "Record";
+            this.Record.Size = new System.Drawing.Size(66, 21);
+            this.Record.TabIndex = 17;
+            this.Record.Text = "Record";
+            this.Record.Click += new System.EventHandler(this.Record_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(965, 505);
+            this.Controls.Add(this.Record);
             this.Controls.Add(this.IP);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
@@ -193,7 +194,6 @@ namespace SmileyHost
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Minimize);
-            this.Controls.Add(this.ServerStart);
             this.Controls.Add(this.Screenshot);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.Display);
@@ -217,7 +217,6 @@ namespace SmileyHost
         private System.Windows.Forms.PictureBox Display;
         private System.Windows.Forms.PictureBox Close;
         private System.Windows.Forms.Label Screenshot;
-        private System.Windows.Forms.Label ServerStart;
         private System.Windows.Forms.PictureBox Minimize;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -225,6 +224,7 @@ namespace SmileyHost
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label IP;
+        private System.Windows.Forms.Label Record;
     }
 }
 

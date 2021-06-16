@@ -46,7 +46,6 @@ namespace SmileyHost
             _server.Stop();
             this.Hide();
             var dashboard = new Dashboard(_clients[0]);
-            MessageBox.Show(_clients.Count.ToString());
             dashboard.Show();
         }
 
@@ -130,7 +129,7 @@ namespace SmileyHost
             {
                 return true;
             }
-            else return false;
+            return false;
         }
 
         private void Log(string text)
@@ -140,12 +139,18 @@ namespace SmileyHost
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ServerStart.Visible = true;
-            _server.Stop();
-            this.Hide();
-            var dashboard = new Dashboard(_clients[1]);
-            MessageBox.Show(_clients.Count.ToString());
-            dashboard.Show();
+            try
+            {
+                ServerStart.Visible = true;
+                _server.Stop();
+                this.Hide();
+                var dashboard = new Dashboard(_clients[1]);
+                dashboard.Show();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Client not online");
+            }
         }
     }
 }
