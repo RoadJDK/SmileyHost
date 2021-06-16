@@ -101,6 +101,9 @@
     <None Include="whiteminus1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Recorder.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="smiley1.ico" />
   </ItemGroup>
   <ItemGroup />
