@@ -18,20 +18,20 @@ namespace SmileyHost
         private bool _running;
         private bool _firstUse;
 
-        private int _index;
+        private IPEndPoint _endPoint;
 
-        public Dashboard(int index)
+        public Dashboard(IPEndPoint endPoint)
         {
             InitializeComponent();
-            Initialize(index);
+            Initialize(endPoint);
         }
 
-        private void Initialize(int index)
+        private void Initialize(IPEndPoint endPoint)
         {
             _helper = new Helper();
             _firstUse = true;
+            _endPoint = endPoint;
             SetOverlay();
-            _index = index;
         }
 
         private void SetOverlay()
@@ -81,24 +81,27 @@ namespace SmileyHost
 
                         using (var client = server.AcceptTcpClient())
                         {
-                            try
+                            if (((IPEndPoint) client.Client.RemoteEndPoint).Address.Equals(_endPoint.Address))
                             {
-                                var nNetStream = client.GetStream();
-
-                                var returnImage = Image.FromStream(nNetStream);
-                                Display.BeginInvoke((MethodInvoker)delegate ()
+                                try
                                 {
-                                    Display.Image = returnImage;
-                                });
-                                nNetStream.Close();
-                            }
-                            catch (SocketException)
-                            {
-                                Log("error while connecting to the socket");
-                            }
-                            catch (Exception)
-                            {
-                                Log("error while recieving");
+                                    var nNetStream = client.GetStream();
+
+                                    var returnImage = Image.FromStream(nNetStream);
+                                    Display.BeginInvoke((MethodInvoker)delegate ()
+                                    {
+                                        Display.Image = returnImage;
+                                    });
+                                    nNetStream.Close();
+                                }
+                                catch (SocketException)
+                                {
+                                    Log("error while connecting to the socket");
+                                }
+                                catch (Exception)
+                                {
+                                    Log("error while recieving");
+                                }
                             }
                         }
                     }
@@ -127,14 +130,6 @@ namespace SmileyHost
 
         private void ServerStart_Click(object sender, EventArgs e)
         {
-            if (_firstUse)
-            {
-                ServerStart.Visible = false;
-                _running = true;
-                _firstUse = false;
-                Run();
-            }
-
         }
 
         protected override void WndProc(ref Message m)
@@ -187,6 +182,20 @@ namespace SmileyHost
                 _overlay.Show();
                 _running = false;
             }
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            ServerStart.Visible = false;
+            _running = true;
+            _firstUse = false;
+            WriteInformation();
+            Run();
+        }
+
+        private void WriteInformation()
+        {
+            IP.Text = _endPoint.Address.ToString();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,10 +14,10 @@ namespace SmileyHost
 {
     public partial class ConnectionList : Form
     {
-        private List<TcpClient> _clients;
+        private List<IPEndPoint> _clients;
+        TcpListener _server;
 
-        private bool _running;
-        private bool _firstUse;
+        private bool _firstUse = true;
 
         public ConnectionList()
         {
@@ -26,7 +27,7 @@ namespace SmileyHost
 
         private void Initialize()
         {
-            _clients = new List<TcpClient>();
+            _clients = new List<IPEndPoint>();
         }
 
         private void Close_Click(object sender, EventArgs e)
@@ -41,8 +42,11 @@ namespace SmileyHost
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ServerStart.Visible = true;
+            _server.Stop();
             this.Hide();
-            var dashboard = new Dashboard(0);
+            var dashboard = new Dashboard(_clients[0]);
+            MessageBox.Show(_clients.Count.ToString());
             dashboard.Show();
         }
 
@@ -65,10 +69,83 @@ namespace SmileyHost
             if (_firstUse)
             {
                 ServerStart.Visible = false;
-                _running = true;
                 _firstUse = false;
                 Run();
             }
+        }
+
+        private void Run()
+        {
+            StartServerAsync();
+        }
+
+        private void StartServerAsync()
+        {
+            Log("Server started");
+            var thread = new Thread(() =>
+            {
+                try
+                {
+                    var ipAddress = IPAddress.Any;
+                    _server = new TcpListener(ipAddress, 65535);
+                    _server.Start();
+                    Log("Server started");
+
+                    while (true)
+                    {
+                        while (!_server.Pending())
+                        {
+                            Thread.Sleep(1000);
+                        }
+
+                        using (var client = _server.AcceptTcpClient())
+                        {
+
+                            if (!Ping(client))
+                            {
+                                _clients.Add((IPEndPoint)client.Client.RemoteEndPoint);
+                                Log("add client...");
+                            }
+
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    Log("error starting the server");
+                }
+            });
+            thread.IsBackground = true;
+            thread.Start();
+        }
+
+        private bool Ping(TcpClient client)
+        {
+            var pingSender = new Ping();
+
+            var address = ((IPEndPoint)client.Client.RemoteEndPoint).Address;
+            var reply = pingSender.Send(address);
+
+            if (reply.Status == IPStatus.Success)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        private void Log(string text)
+        {
+            Console.WriteLine(text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ServerStart.Visible = true;
+            _server.Stop();
+            this.Hide();
+            var dashboard = new Dashboard(_clients[1]);
+            MessageBox.Show(_clients.Count.ToString());
+            dashboard.Show();
         }
     }
 }

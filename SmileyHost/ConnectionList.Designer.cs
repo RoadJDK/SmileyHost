@@ -34,13 +34,15 @@ namespace SmileyHost
             this.Close = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Detail = new System.Windows.Forms.Panel();
-            this.List = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.List = new System.Windows.Forms.Panel();
             this.ServerStart = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Close)).BeginInit();
             this.Detail.SuspendLayout();
+            this.List.SuspendLayout();
             this.SuspendLayout();
             // 
             // Minimize
@@ -79,20 +81,21 @@ namespace SmileyHost
             // Detail
             // 
             this.Detail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Detail.Controls.Add(this.button1);
             this.Detail.Controls.Add(this.label2);
             this.Detail.Location = new System.Drawing.Point(304, 43);
             this.Detail.Name = "Detail";
             this.Detail.Size = new System.Drawing.Size(649, 392);
             this.Detail.TabIndex = 12;
             // 
-            // List
+            // button1
             // 
-            this.List.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.List.Location = new System.Drawing.Point(21, 43);
-            this.List.Name = "List";
-            this.List.Size = new System.Drawing.Size(251, 392);
-            this.List.TabIndex = 0;
+            this.button1.Location = new System.Drawing.Point(20, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -104,15 +107,15 @@ namespace SmileyHost
             this.label2.Size = new System.Drawing.Size(0, 21);
             this.label2.TabIndex = 13;
             // 
-            // button1
+            // List
             // 
-            this.button1.Location = new System.Drawing.Point(246, 148);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.List.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.List.Controls.Add(this.button2);
+            this.List.Controls.Add(this.button1);
+            this.List.Location = new System.Drawing.Point(21, 43);
+            this.List.Name = "List";
+            this.List.Size = new System.Drawing.Size(251, 392);
+            this.List.TabIndex = 0;
             // 
             // ServerStart
             // 
@@ -125,6 +128,16 @@ namespace SmileyHost
             this.ServerStart.TabIndex = 13;
             this.ServerStart.Text = "Start Server";
             this.ServerStart.Click += new System.EventHandler(this.ServerStart_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(20, 79);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ConnectionList
             // 
@@ -146,6 +159,7 @@ namespace SmileyHost
             ((System.ComponentModel.ISupportInitialize)(this.Close)).EndInit();
             this.Detail.ResumeLayout(false);
             this.Detail.PerformLayout();
+            this.List.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,6 +174,7 @@ namespace SmileyHost
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label ServerStart;
+        private System.Windows.Forms.Button button2;
     }
 }
 
