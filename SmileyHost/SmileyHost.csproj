@@ -63,6 +63,9 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
+    <Compile Include="Objects\ConnectionListItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Objects\ConnectionPanel.cs">
       <SubType>Component</SubType>
     </Compile>

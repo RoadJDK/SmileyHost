@@ -143,6 +143,7 @@ namespace SmileyHost
             this.pictureBox1.Size = new System.Drawing.Size(33, 34);
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Minimize
             // 
@@ -153,6 +154,7 @@ namespace SmileyHost
             this.Minimize.Size = new System.Drawing.Size(22, 22);
             this.Minimize.TabIndex = 10;
             this.Minimize.TabStop = false;
+            this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
             // 
             // Close
             // 
@@ -163,6 +165,7 @@ namespace SmileyHost
             this.Close.Size = new System.Drawing.Size(22, 22);
             this.Close.TabIndex = 5;
             this.Close.TabStop = false;
+            this.Close.Click += new System.EventHandler(this.Close_Click);
             // 
             // Display
             // 

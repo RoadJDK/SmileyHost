@@ -24,16 +24,27 @@ namespace SmileyHost
 
         private void Initialize()
         {
-
+            List.HorizontalScroll.Maximum = 0;
+            List.AutoScroll = false;
+            List.VerticalScroll.Visible = false;
+            List.AutoScroll = true;
         }
 
         private void ServerStart_Click(object sender, EventArgs e)
         {
-            List.Controls.Add(new ConnectionPanel(0, "hello"));
-            List.Controls.Add(new ConnectionPanel(1, "hello2"));
-            List.Controls.Add(new ConnectionPanel(2, "hello3"));
-            List.Controls.Add(new ConnectionPanel(3, "hello4"));
-            List.Controls.Add(new ConnectionPanel(4, "hello5"));
+            List.Controls.Add(new ConnectionListItem(0, "Hello1"));
+            List.Controls.Add(new ConnectionListItem(1, "Hello2"));
+            List.Controls.Add(new ConnectionListItem(2, "Hello3"));
+            List.Controls.Add(new ConnectionListItem(3, "Hello4"));
+            List.Controls.Add(new ConnectionListItem(4, "Hello5"));
+            List.Controls.Add(new ConnectionListItem(5, "Hello6"));
+            List.Controls.Add(new ConnectionListItem(6, "Hello7"));
+            List.Controls.Add(new ConnectionListItem(7, "Hello8"));
+            List.Controls.Add(new ConnectionListItem(8, "Hello9"));
+            List.Controls.Add(new ConnectionListItem(9, "Hello10"));
+            List.Controls.Add(new ConnectionListItem(10, "Hello11"));
+            List.Controls.Add(new ConnectionListItem(11, "Hello12"));
+            List.Controls.Add(new ConnectionListItem(12, "Hello13"));
             ServerStart.Hide();
         }
         
