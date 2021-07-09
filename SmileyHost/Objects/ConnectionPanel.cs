@@ -120,9 +120,8 @@ namespace SmileyHost.Objects
 
         private void DashBoardClick(object sender, EventArgs e)
         {
-            MessageBox.Show("I am a dashboard with the ID: " + _id);
             var parentForm = (Form)this.Parent;
-            var dashboard = new Dashboard
+            var dashboard = new Dashboard(_id,_name)
             {
                 Location = parentForm.Location,
                 StartPosition = FormStartPosition.Manual

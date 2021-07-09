@@ -15,15 +15,21 @@ namespace SmileyHost
 {
     public partial class Dashboard : Form
     {
+        private int _id;
+        private string _name;
 
-        public Dashboard()
+        public Dashboard(int id, string name)
         {
+            _id = id;
+            _name = name;
+
             InitializeComponent();
             Initialize();
         }
 
         private void Initialize()
         {
+            ClientName.Text = _name;
         }
 
         protected override void WndProc(ref Message m)
@@ -50,7 +56,7 @@ namespace SmileyHost
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void Back_Click(object sender, EventArgs e)
         {
             this.Close();
         }

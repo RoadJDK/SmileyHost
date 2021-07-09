@@ -30,7 +30,7 @@ namespace SmileyHost
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConnectionList));
-            this.label1 = new System.Windows.Forms.Label();
+            this.LabelTitle = new System.Windows.Forms.Label();
             this.List = new System.Windows.Forms.Panel();
             this.ServerStart = new System.Windows.Forms.Label();
             this.Minimize = new System.Windows.Forms.PictureBox();
@@ -39,16 +39,16 @@ namespace SmileyHost
             ((System.ComponentModel.ISupportInitialize)(this.Close)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // LabelTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(17, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 20);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "SmileyHost List :^)";
+            this.LabelTitle.AutoSize = true;
+            this.LabelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelTitle.ForeColor = System.Drawing.Color.White;
+            this.LabelTitle.Location = new System.Drawing.Point(17, 13);
+            this.LabelTitle.Name = "LabelTitle";
+            this.LabelTitle.Size = new System.Drawing.Size(138, 20);
+            this.LabelTitle.TabIndex = 11;
+            this.LabelTitle.Text = "SmileyHost List :^)";
             // 
             // List
             // 
@@ -101,7 +101,7 @@ namespace SmileyHost
             this.ClientSize = new System.Drawing.Size(965, 505);
             this.Controls.Add(this.ServerStart);
             this.Controls.Add(this.List);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LabelTitle);
             this.Controls.Add(this.Minimize);
             this.Controls.Add(this.Close);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -118,7 +118,7 @@ namespace SmileyHost
         #endregion
         private System.Windows.Forms.PictureBox Close;
         private System.Windows.Forms.PictureBox Minimize;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LabelTitle;
         private System.Windows.Forms.Panel List;
         private System.Windows.Forms.Label ServerStart;
     }

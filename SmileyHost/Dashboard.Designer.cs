@@ -32,17 +32,26 @@ namespace SmileyHost
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.LogOutput = new System.Windows.Forms.TextBox();
             this.Screenshot = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LabelTitle = new System.Windows.Forms.Label();
+            this.Freeze = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.IP = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LabelIP = new System.Windows.Forms.Label();
+            this.ClientIP = new System.Windows.Forms.Label();
+            this.Back = new System.Windows.Forms.PictureBox();
             this.Minimize = new System.Windows.Forms.PictureBox();
             this.Close = new System.Windows.Forms.PictureBox();
             this.Display = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.LabelName = new System.Windows.Forms.Label();
+            this.ClientName = new System.Windows.Forms.Label();
+            this.LabelStatus = new System.Windows.Forms.Label();
+            this.LabelLocation = new System.Windows.Forms.Label();
+            this.ClientLocation = new System.Windows.Forms.Label();
+            this.ClientStatus = new System.Windows.Forms.Label();
+            this.LabelLastOnline = new System.Windows.Forms.Label();
+            this.ClientLastOnline = new System.Windows.Forms.Label();
+            this.Shell = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Display)).BeginInit();
@@ -53,11 +62,11 @@ namespace SmileyHost
             this.LogOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.LogOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LogOutput.ForeColor = System.Drawing.Color.White;
-            this.LogOutput.Location = new System.Drawing.Point(21, 123);
+            this.LogOutput.Location = new System.Drawing.Point(21, 221);
             this.LogOutput.Multiline = true;
             this.LogOutput.Name = "LogOutput";
             this.LogOutput.ReadOnly = true;
-            this.LogOutput.Size = new System.Drawing.Size(251, 312);
+            this.LogOutput.Size = new System.Drawing.Size(251, 214);
             this.LogOutput.TabIndex = 0;
             // 
             // Screenshot
@@ -71,27 +80,27 @@ namespace SmileyHost
             this.Screenshot.TabIndex = 8;
             this.Screenshot.Text = "Screenshot";
             // 
-            // label1
+            // LabelTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(17, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 20);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "SmileyHost Dashboard :^)";
+            this.LabelTitle.AutoSize = true;
+            this.LabelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelTitle.ForeColor = System.Drawing.Color.White;
+            this.LabelTitle.Location = new System.Drawing.Point(17, 13);
+            this.LabelTitle.Name = "LabelTitle";
+            this.LabelTitle.Size = new System.Drawing.Size(192, 20);
+            this.LabelTitle.TabIndex = 11;
+            this.LabelTitle.Text = "SmileyHost Dashboard :^)";
             // 
-            // label2
+            // Freeze
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(300, 453);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Freeze";
+            this.Freeze.AutoSize = true;
+            this.Freeze.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Freeze.ForeColor = System.Drawing.Color.White;
+            this.Freeze.Location = new System.Drawing.Point(300, 453);
+            this.Freeze.Name = "Freeze";
+            this.Freeze.Size = new System.Drawing.Size(59, 20);
+            this.Freeze.TabIndex = 12;
+            this.Freeze.Text = "Freeze";
             // 
             // flowLayoutPanel1
             // 
@@ -109,41 +118,41 @@ namespace SmileyHost
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(251, 67);
+            this.textBox1.Size = new System.Drawing.Size(251, 143);
             this.textBox1.TabIndex = 14;
             // 
-            // label3
+            // LabelIP
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(31, 55);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 16);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "IP:";
+            this.LabelIP.AutoSize = true;
+            this.LabelIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelIP.ForeColor = System.Drawing.Color.White;
+            this.LabelIP.Location = new System.Drawing.Point(31, 106);
+            this.LabelIP.Name = "LabelIP";
+            this.LabelIP.Size = new System.Drawing.Size(23, 16);
+            this.LabelIP.TabIndex = 15;
+            this.LabelIP.Text = "IP:";
             // 
-            // IP
+            // ClientIP
             // 
-            this.IP.AutoSize = true;
-            this.IP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IP.ForeColor = System.Drawing.Color.Tomato;
-            this.IP.Location = new System.Drawing.Point(153, 55);
-            this.IP.Name = "IP";
-            this.IP.Size = new System.Drawing.Size(31, 16);
-            this.IP.TabIndex = 16;
-            this.IP.Text = "N/A";
+            this.ClientIP.AutoSize = true;
+            this.ClientIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientIP.ForeColor = System.Drawing.Color.Tomato;
+            this.ClientIP.Location = new System.Drawing.Point(153, 106);
+            this.ClientIP.Name = "ClientIP";
+            this.ClientIP.Size = new System.Drawing.Size(31, 16);
+            this.ClientIP.TabIndex = 16;
+            this.ClientIP.Text = "N/A";
             // 
-            // pictureBox1
+            // Back
             // 
-            this.pictureBox1.BackgroundImage = global::SmileyHost.Properties.Resources.whitearrow1;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 441);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 34);
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.Back.BackgroundImage = global::SmileyHost.Properties.Resources.whitearrow1;
+            this.Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Back.Location = new System.Drawing.Point(21, 441);
+            this.Back.Name = "Back";
+            this.Back.Size = new System.Drawing.Size(33, 34);
+            this.Back.TabIndex = 17;
+            this.Back.TabStop = false;
+            this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // Minimize
             // 
@@ -178,19 +187,127 @@ namespace SmileyHost
             this.Display.TabIndex = 2;
             this.Display.TabStop = false;
             // 
+            // LabelName
+            // 
+            this.LabelName.AutoSize = true;
+            this.LabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelName.ForeColor = System.Drawing.Color.White;
+            this.LabelName.Location = new System.Drawing.Point(31, 55);
+            this.LabelName.Name = "LabelName";
+            this.LabelName.Size = new System.Drawing.Size(48, 16);
+            this.LabelName.TabIndex = 18;
+            this.LabelName.Text = "Name:";
+            // 
+            // ClientName
+            // 
+            this.ClientName.AutoSize = true;
+            this.ClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientName.ForeColor = System.Drawing.Color.White;
+            this.ClientName.Location = new System.Drawing.Point(153, 55);
+            this.ClientName.Name = "ClientName";
+            this.ClientName.Size = new System.Drawing.Size(35, 16);
+            this.ClientName.TabIndex = 19;
+            this.ClientName.Text = "Test";
+            // 
+            // LabelStatus
+            // 
+            this.LabelStatus.AutoSize = true;
+            this.LabelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelStatus.ForeColor = System.Drawing.Color.White;
+            this.LabelStatus.Location = new System.Drawing.Point(31, 80);
+            this.LabelStatus.Name = "LabelStatus";
+            this.LabelStatus.Size = new System.Drawing.Size(48, 16);
+            this.LabelStatus.TabIndex = 21;
+            this.LabelStatus.Text = "Status:";
+            // 
+            // LabelLocation
+            // 
+            this.LabelLocation.AutoSize = true;
+            this.LabelLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelLocation.ForeColor = System.Drawing.Color.White;
+            this.LabelLocation.Location = new System.Drawing.Point(31, 131);
+            this.LabelLocation.Name = "LabelLocation";
+            this.LabelLocation.Size = new System.Drawing.Size(62, 16);
+            this.LabelLocation.TabIndex = 20;
+            this.LabelLocation.Text = "Location:";
+            // 
+            // ClientLocation
+            // 
+            this.ClientLocation.AutoSize = true;
+            this.ClientLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientLocation.ForeColor = System.Drawing.SystemColors.Window;
+            this.ClientLocation.Location = new System.Drawing.Point(153, 131);
+            this.ClientLocation.Name = "ClientLocation";
+            this.ClientLocation.Size = new System.Drawing.Size(56, 16);
+            this.ClientLocation.TabIndex = 22;
+            this.ClientLocation.Text = "Canada";
+            // 
+            // ClientStatus
+            // 
+            this.ClientStatus.AutoSize = true;
+            this.ClientStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientStatus.ForeColor = System.Drawing.Color.Tomato;
+            this.ClientStatus.Location = new System.Drawing.Point(153, 80);
+            this.ClientStatus.Name = "ClientStatus";
+            this.ClientStatus.Size = new System.Drawing.Size(45, 16);
+            this.ClientStatus.TabIndex = 23;
+            this.ClientStatus.Text = "Offline";
+            // 
+            // LabelLastOnline
+            // 
+            this.LabelLastOnline.AutoSize = true;
+            this.LabelLastOnline.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelLastOnline.ForeColor = System.Drawing.Color.White;
+            this.LabelLastOnline.Location = new System.Drawing.Point(31, 156);
+            this.LabelLastOnline.Name = "LabelLastOnline";
+            this.LabelLastOnline.Size = new System.Drawing.Size(77, 16);
+            this.LabelLastOnline.TabIndex = 24;
+            this.LabelLastOnline.Text = "Last Online:";
+            // 
+            // ClientLastOnline
+            // 
+            this.ClientLastOnline.AutoSize = true;
+            this.ClientLastOnline.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientLastOnline.ForeColor = System.Drawing.Color.White;
+            this.ClientLastOnline.Location = new System.Drawing.Point(153, 156);
+            this.ClientLastOnline.Name = "ClientLastOnline";
+            this.ClientLastOnline.Size = new System.Drawing.Size(104, 16);
+            this.ClientLastOnline.TabIndex = 25;
+            this.ClientLastOnline.Text = "09.07.2021 02:40";
+            // 
+            // Shell
+            // 
+            this.Shell.AutoSize = true;
+            this.Shell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Shell.ForeColor = System.Drawing.Color.White;
+            this.Shell.Location = new System.Drawing.Point(463, 453);
+            this.Shell.Name = "Shell";
+            this.Shell.Size = new System.Drawing.Size(44, 20);
+            this.Shell.TabIndex = 26;
+            this.Shell.Text = "Shell";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(965, 505);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.IP);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Shell);
+            this.Controls.Add(this.ClientLastOnline);
+            this.Controls.Add(this.LabelLastOnline);
+            this.Controls.Add(this.ClientStatus);
+            this.Controls.Add(this.ClientLocation);
+            this.Controls.Add(this.LabelStatus);
+            this.Controls.Add(this.LabelLocation);
+            this.Controls.Add(this.ClientName);
+            this.Controls.Add(this.LabelName);
+            this.Controls.Add(this.Back);
+            this.Controls.Add(this.ClientIP);
+            this.Controls.Add(this.LabelIP);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Freeze);
+            this.Controls.Add(this.LabelTitle);
             this.Controls.Add(this.Minimize);
             this.Controls.Add(this.Screenshot);
             this.Controls.Add(this.Close);
@@ -200,7 +317,7 @@ namespace SmileyHost
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.Text = "SmileyHost";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Display)).EndInit();
@@ -216,13 +333,22 @@ namespace SmileyHost
         private System.Windows.Forms.PictureBox Close;
         private System.Windows.Forms.Label Screenshot;
         private System.Windows.Forms.PictureBox Minimize;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LabelTitle;
+        private System.Windows.Forms.Label Freeze;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label IP;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label LabelIP;
+        private System.Windows.Forms.Label ClientIP;
+        private System.Windows.Forms.PictureBox Back;
+        private System.Windows.Forms.Label LabelName;
+        private System.Windows.Forms.Label ClientName;
+        private System.Windows.Forms.Label LabelStatus;
+        private System.Windows.Forms.Label LabelLocation;
+        private System.Windows.Forms.Label ClientLocation;
+        private System.Windows.Forms.Label ClientStatus;
+        private System.Windows.Forms.Label LabelLastOnline;
+        private System.Windows.Forms.Label ClientLastOnline;
+        private System.Windows.Forms.Label Shell;
     }
 }
 
